@@ -1,0 +1,12 @@
+<mat-expansion-panel *ngIf="!toCreate" #expansionPanel hideToggle>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Title: {{album.title}}
+    </mat-panel-title>
+
+    <mat-panel-description>
+      Price: {{album.price | money:'€'}}
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <app-album  (modified)="modify($event)" (deleted)="delete($event)" [album]="album" ></app-album>
+</mat-expansion-panel>

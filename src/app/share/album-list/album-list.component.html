@@ -1,0 +1,13 @@
+<div style="margin-top: 35px">
+  <mat-accordion *ngFor="let album of albums">
+      <app-album-card (modified)="modify($event)" (deleted)="delete($event)" [album]="album" ></app-album-card>
+  </mat-accordion>
+
+  <div *ngIf="this.albums.length == 0">
+    <span>Pas d'albums dans la base de données !</span>
+  </div>
+
+  <div style="margin-top: 20px">
+    <button mat-button [routerLink]="['/home']">Accueil</button>
+  </div>
+</div>

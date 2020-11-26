@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.mat-button {
+  color: white;
+  background-color: darkcyan;
+}
+
+.album-form-field {
+  width: 80%;
+  max-width: 500px;
+}
+
+.album-form-header {
+  text-align: center;
+}
+
+.main-container {
+  text-align: center;
+}

@@ -1,0 +1,63 @@
+<form novalidate [formGroup]="form" style="width: 100%">
+  <p *ngIf="!toCreate">
+    <mat-form-field class="album-form-field">
+      <mat-label>Identifiant</mat-label>
+      <input disabled value="{{album.id}}" matInput placeholder="Golden Age">
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field class="album-form-field">
+      <mat-label>Title</mat-label>
+      <input autocomplete="off" value="{{album.title}}" matInput placeholder="Golden Age" formControlName="title">
+      <mat-error *ngIf="form.get('title').dirty && form.get('title').hasError('required')">
+        Title is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field class="album-form-field">
+      <mat-label>Author</mat-label>
+      <input autocomplete="off" value="{{album.author}}" matInput placeholder="Bob Ross" formControlName="author">
+      <mat-error *ngIf="form.get('author').dirty && form.get('author').hasError('required')">
+        Author is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field class="album-form-field">
+      <mat-label>Editor</mat-label>
+      <input autocomplete="off" value="{{album.editor}}" matInput placeholder="Bob Ross" formControlName="editor">
+      <mat-error *ngIf="form.get('editor').dirty && form.get('editor').hasError('required')">
+        Editor is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field class="album-form-field">
+      <mat-label>Price</mat-label>
+      <input autocomplete="off" value="{{album.price}}" type="number" matInput placeholder="19.99"
+             formControlName="price">
+      <mat-error *ngIf="form.get('price').dirty && form.get('price').hasError('required')">
+        Price is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field class="album-form-field">
+      <mat-label>nbEx</mat-label>
+      <input autocomplete="off" value="{{album.nbEx}}" type="number" matInput placeholder="5" formControlName="nbEx">
+      <mat-error *ngIf="form.get('nbEx').dirty && form.get('nbEx').hasError('required')">
+        Is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="form.get('nbEx').dirty && form.get('nbEx').hasError('isNumber')">
+        Must be <strong>an integer</strong>
+      </mat-error>
+    </mat-form-field>
+  </p>
+  <mat-error>{{err}}</mat-error>
+  <button *ngIf="!toCreate" (click)="modify()" type="submit" mat-button>Modify</button>
+  <button *ngIf="toCreate" (click)="insert()" type="submit" style="background-color: green" mat-button>Create</button>
+  <button *ngIf="!toCreate" type="button" (click)="delete()" style="background-color: darkred; margin-left: 10px"
+          mat-button>Delete
+  </button>
+</form>

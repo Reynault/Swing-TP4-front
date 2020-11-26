@@ -1,0 +1,15 @@
+<mat-toolbar>
+  <button [matMenuTriggerFor]="menu" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+    <mat-menu #menu="matMenu">
+      <button [routerLink]="['/albums']" mat-menu-item>
+        <mat-icon>assignment</mat-icon>
+        <span>Manage albums</span>
+      </button>
+    </mat-menu>
+  </button>
+  <span>
+    <a [routerLink]="['/home']">Album Mania</a>
+  </span>
+  <span class="example-spacer"></span>
+</mat-toolbar>
